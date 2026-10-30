@@ -1,4 +1,5 @@
 ﻿using BookShop.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,9 +11,9 @@ public static class DependencyInjection
         this IServiceCollection services, IConfiguration configuration
     )
     {
-        services.AppDbContext<AppDbContext>(
+        services.AddDbContext<AppDbContext>(
             options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection"),
+                configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly("BookShop.Infrastructure")
                 ));
         
