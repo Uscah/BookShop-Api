@@ -11,11 +11,9 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
     {
         builder.ToTable("Authors");
         builder.HasKey(a => a.Id);
-        builder.Property(a => a.FirstName)
-            .HasMaxLength(64)
+        builder.Property(a => a.Name)
+            .HasMaxLength(120)
             .IsRequired();
-        builder.Property(a => a.LastName)
-            .HasMaxLength(64)
-            .IsRequired();
+        
     }
 }
