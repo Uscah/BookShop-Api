@@ -12,15 +12,12 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\BookShop.Application\BookShop.Application.csproj" />
       <ProjectReference Include="..\BookShop.Infrastructure\BookShop.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Controllers\" />
     </ItemGroup>
 
 </Project>

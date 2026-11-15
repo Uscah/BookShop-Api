@@ -1,4 +1,6 @@
-﻿using BookShop.Infrastructure.Data;
+﻿using BookShop.Domain.Interfaces;
+using BookShop.Infrastructure.Data;
+using BookShop.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +18,8 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly("BookShop.Infrastructure")
                 ));
-        
-        
+
+        services.AddScoped<IBookRepository, BookRepository>();
         return services;
     }
 }
