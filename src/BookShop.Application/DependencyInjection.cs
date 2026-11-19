@@ -11,6 +11,7 @@ public static class DependencyInjection
     {
         MapsterConfig.RegisterMappings();
         services.AddScoped<IBookService, BookService>();
+        services.AddScoped<IBookEditionService, BookEditionService>();
 
         return services;
     }

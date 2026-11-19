@@ -10,4 +10,5 @@ public interface IBookRepository
     Task<List<Book>> GetBooksAsync(BookFilter filter);
     Task PostBookAsync(Book book);
     void DeleteBook(Book book);
+    Task<bool> BookExists(int bookId);
 }

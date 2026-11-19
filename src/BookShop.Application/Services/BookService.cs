@@ -17,10 +17,8 @@ public class BookService : IBookService
 
     public async Task<BookDto> GetBookByIdAsync(int bookId)
     {
-        if (bookId is 0 or < 0)
-        {
-            throw new ArgumentNullException("bookId no es valido");
-        }
+        if (bookId is 0 or < 0) throw new ArgumentException("bookId no es valido");
+        
         var book = await _bookRepository.GetBookByIdAsync(bookId) ?? throw new KeyNotFoundException("El libro no existe");
         return book.Adapt<BookDto>();
     }

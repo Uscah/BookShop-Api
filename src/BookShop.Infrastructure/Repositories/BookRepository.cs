@@ -83,4 +83,9 @@ public class BookRepository : IBookRepository
         _context.Books.Remove(book);
     }
     
+    //Any
+    public async Task<bool> BookExists(int bookId)
+    {
+        return await _context.Books.AnyAsync(a => a.Id == bookId);
+    }
 }

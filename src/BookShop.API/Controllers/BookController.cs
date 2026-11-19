@@ -37,7 +37,7 @@ public class BookController : ControllerBase
             var book = await _bookService.GetBookByIdAsync(id);
             return Ok(book);
         }
-        catch (ArgumentNullException ex)
+        catch (ArgumentException ex)
         {
             return BadRequest(ex.Message);
         }
@@ -58,7 +58,12 @@ public class BookController : ControllerBase
         try
         {
             var createdId = await _bookService.CreateBookAsync(dto);
-            return CreatedAtAction(nameof(GetBook), new { id = createdId }, createdId);
+            return CreatedAtAction(
+                actionName: nameof(GetBook), 
+                controllerName: "Book", 
+                routeValues: new { id = createdId }, 
+                value: createdId
+            );
         }
         catch (Exception ex)
         {
